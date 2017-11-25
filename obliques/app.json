@@ -1,4 +1,5 @@
 {
-  "name": "obliques",
-  "displayName": "obliques"
+  "expo": {
+    "sdkVersion": "22.0.0"
+  }
 }
