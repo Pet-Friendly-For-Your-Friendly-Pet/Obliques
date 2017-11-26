@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, Image, View, StyleSheet } from 'react-native';
 
+import Strategies from './Strategies.js';
+
 var _ = require('lodash');
 
 let strategies = [
@@ -139,11 +141,16 @@ let strategies = [
 	"Be less critical more often",
 ];
 
+//use lodash to get a random element from the collection
+var randomStrategy = _.sample(strategies);
+var seenStrategies = [];
+
 export default class Obliques extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text>Obliques</Text>
+				<Text>This will be Landing Text that fades when tapped</Text>
+				<Strategies />
 			</View>
 		);
 	}

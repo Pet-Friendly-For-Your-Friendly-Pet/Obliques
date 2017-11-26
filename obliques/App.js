@@ -1,13 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio } from 'react-native';
 
-import TestComponent from './Components/Test.js';
+
+var _ = require('lodash');
+// import TestComponent from './Components/Test.js';
+import Obliques from './Components/Obliques';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TestComponent />
+{/*        <TestComponent />*/}
+        <Obliques />
       </View>
     );
   }
@@ -15,6 +19,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
