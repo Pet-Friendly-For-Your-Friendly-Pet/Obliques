@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio } from 'react-native';
-
+import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, StackNavigator} from 'react-native';
 
 var _ = require('lodash');
 // import TestComponent from './Components/Test.js';
 import Obliques from './Components/Obliques';
+
+
 
 export default class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
