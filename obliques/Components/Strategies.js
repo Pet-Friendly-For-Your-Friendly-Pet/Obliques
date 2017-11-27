@@ -137,7 +137,8 @@ let strategies = [
 	"Once the search is in progress, something will be found",
 	"Only a part, not the whole",
 	"From nothing to more than nothing",
-	"Be less critical more often",];
+	"Be less critical more often",
+	];
 
 //use lodash to get a random element from the collection
 var randomStrategy = _.sample(strategies);
