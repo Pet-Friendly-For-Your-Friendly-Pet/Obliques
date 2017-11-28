@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, StackNavigator} from 'react-native';
+import { Text, Image, View, StyleSheet,} from 'react-native';
 
 import LandingScreen from './LandingScreen.js';
 
