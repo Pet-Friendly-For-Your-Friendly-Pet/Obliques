@@ -19,10 +19,12 @@ export default class Obliques extends Component {
 const styles = StyleSheet.create({
 	container: {
 		display: 'flex',
+		flexDirection: 'row',
+		flexWrap: 'wrap',
 		justifyContent: 'center',
 		alignItems: 'center',
 		backgroundColor: '#FFFFFF',
 		height: responsiveHeight(10),
-    	width: responsiveWidth(80),
+    	width: responsiveWidth(100),
 	},
 });
