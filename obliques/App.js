@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio} from 'react-native';
 
+
 var _ = require('lodash');
 // import TestComponent from './Components/Test.js';
 import Obliques from './Components/Obliques';
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'center',
   },

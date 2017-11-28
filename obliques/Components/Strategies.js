@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio } from 'react-native';
-import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 
 var _ = require('lodash');
 
@@ -158,8 +157,6 @@ export default class Strategies extends Component {
 const styles = StyleSheet.create({
 	container: {
 		display: 'flex',
-		height: responsiveHeight(50),
-		width: responsiveWidth(50),
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexWrap: 'wrap',

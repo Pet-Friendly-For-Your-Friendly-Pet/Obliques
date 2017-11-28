@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, Image, View, StyleSheet, NavigatorIOS } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
+
 
 import Strategies from './Strategies.js';
 
@@ -18,10 +19,10 @@ export default class Obliques extends Component {
 const styles = StyleSheet.create({
 	container: {
 		display: 'flex',
-		flexDirection: 'row',
-		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: '#FFFFFF'
+		backgroundColor: '#FFFFFF',
+		height: responsiveHeight(10),
+    	width: responsiveWidth(80),
 	},
 });
