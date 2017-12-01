@@ -1,5 +1,19 @@
 {
   "expo": {
-    "sdkVersion": "22.0.0"
-  }
+  	"name": "Oblique Strategies",
+  	"icon": "./assets/icon.png",
+  	"slug": "exp.host/Mothra/Oblique_Strategies",
+    "sdkVersion": "22.0.2",
+    "privacy": "public",
+    "hideExponentText": "true",
+    "ios": {
+    	"bundleIdentifier": "com.Oblique_Strategies"
+    },
+    "splash": {
+  	"image": "./assets/splash.png",
+  	"backgroundColor": "#000000",
+  	"resizeMode": "cover"
+  	},
+  },
+  
 }
