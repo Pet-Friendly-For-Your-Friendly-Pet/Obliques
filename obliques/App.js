@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity} from 'react-native';
+import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity, Animated} from 'react-native';
 import { Asset, AppLoading, Font } from 'expo';
 
 var _ = require('lodash');
@@ -7,6 +7,7 @@ var _ = require('lodash');
 export default class App extends React.Component {
   constructor(props) {
     super(props)
+    this._animated = new Animated.Value(0);
     this.state = { strategies: _.sample([
     "Remove specifics and convert to ambiguities",
     "Think of the radio",
@@ -152,8 +153,12 @@ export default class App extends React.Component {
     });
     this.setState({ fontLoaded: true });
   }
-        
+   
   onTouch = () => {
+      Animated.timing(this._animated, {
+      toValue: 1,
+      duration: 99000,
+    }).start();
     this.setState({strategies: _.sample([
     "Remove specifics and convert to ambiguities",
     "Think of the radio",
@@ -291,11 +296,11 @@ export default class App extends React.Component {
     ])});
   }
 
-
   render() {
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
+        <Animated.View style={styles.animated}>
         {
           this.state.fontLoaded ? (
             <Text style={styles.strategies}>
@@ -303,6 +308,7 @@ export default class App extends React.Component {
             </Text>
           ) : null
         }
+        </Animated.View>
         </TouchableOpacity>
       </View>
     );
@@ -320,7 +326,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  animated: {
+    opacity: this._animated,
   },
   strategies: {
     flexWrap: 'wrap',

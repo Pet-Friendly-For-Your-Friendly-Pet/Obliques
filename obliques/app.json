@@ -9,6 +9,9 @@
     "ios": {
     	"bundleIdentifier": "com.Oblique_Strategies"
     },
+    "loading": {
+    	"backgroundImage":"./assets/splash.png",
+    },
     "splash": {
   	"image": "./assets/splash.png",
   	"backgroundColor": "#000000",
