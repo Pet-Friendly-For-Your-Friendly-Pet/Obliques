@@ -1,22 +1,23 @@
 {
+  "name": "obliques",
+  "displayName": "obliques",
   "expo": {
   	"name": "Oblique Strategies",
   	"icon": "./assets/icon.png",
-  	"slug": "exp.host/Mothra/Oblique_Strategies",
-    "sdkVersion": "22.0.2",
+  	"slug": "exp.host/Mothra/Oblique-Strategies",
+    "sdkVersion": "23.0.0",
     "privacy": "public",
     "hideExponentText": "true",
     "ios": {
-    	"bundleIdentifier": "com.Oblique_Strategies"
+    	"bundleIdentifier": "com.Oblique-Strategies"
     },
     "loading": {
-    	"backgroundImage":"./assets/splash.png",
+    	"backgroundImage":"./assets/splash.png"
     },
     "splash": {
-  	"image": "./assets/splash.png",
+  	"image": "./assets/splashResize.png",
   	"backgroundColor": "#000000",
-  	"resizeMode": "cover"
-  	},
-  },
-  
+  	"resizeMode": "contain"
+  	}
+  }
 }

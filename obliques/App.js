@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity, Animated} from 'react-native';
+import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity, Animated, Easing} from 'react-native';
 import { Asset, AppLoading, Font } from 'expo';
 
 var _ = require('lodash');
@@ -7,7 +7,7 @@ var _ = require('lodash');
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-    this._animated = new Animated.Value(0);
+    this.animatedValue = new Animated.Value(0);
     this.state = { strategies: _.sample([
     "Remove specifics and convert to ambiguities",
     "Think of the radio",
@@ -152,13 +152,22 @@ export default class App extends React.Component {
       'OpenSans-LightItalic': require('./assets/OpenSans-LightItalic.ttf'),
     });
     this.setState({ fontLoaded: true });
+    this.animate();
+  }
+
+  animate () {
+    this.animatedValue.setValue(0)
+    Animated.timing(
+      this.animatedValue,
+      {
+        toValue: 1,
+        duration: 2000,
+        easing: Easing.linear
+      }
+    ).start(() => this.animate())
   }
    
   onTouch = () => {
-      Animated.timing(this._animated, {
-      toValue: 1,
-      duration: 99000,
-    }).start();
     this.setState({strategies: _.sample([
     "Remove specifics and convert to ambiguities",
     "Think of the radio",
@@ -297,10 +306,14 @@ export default class App extends React.Component {
   }
 
   render() {
+    const opacity = this.animatedValue.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: [0, 1, 0]
+    })
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
-        <Animated.View style={styles.animated}>
+        <Animated.View style={{opacity}}>
         {
           this.state.fontLoaded ? (
             <Text style={styles.strategies}>
@@ -320,7 +333,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#000000',
   },
   touch: {
     flex: 1,
@@ -328,15 +341,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  animated: {
-    opacity: this._animated,
-  },
   strategies: {
     flexWrap: 'wrap',
     margin: 5,
     padding: 5,
     fontSize: 16,
     textAlign: 'center',
-    fontFamily: 'OpenSans-LightItalic'
+    fontFamily: 'OpenSans-LightItalic',
+    color: '#FFFFFF'
   }
 });
