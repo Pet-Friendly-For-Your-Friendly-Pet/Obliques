@@ -156,13 +156,13 @@ export default class App extends React.Component {
   }
 
   animate () {
-    this.animatedValue.setValue(0)
+    // this.animatedValue.setValue(0)
     Animated.timing(
       this.animatedValue,
       {
         toValue: 1,
-        duration: 2000,
-        easing: Easing.linear
+        duration: 4000,
+        easing: Easing.exp
       }
     ).start(() => this.animate())
   }
@@ -306,21 +306,21 @@ export default class App extends React.Component {
   }
 
   render() {
-    const opacity = this.animatedValue.interpolate({
+    let opacity = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
-      outputRange: [0, 1, 0]
+      outputRange: [0, 1, 1]
     })
     return (
       <View style={styles.container}>
         <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
         <Animated.View style={{opacity}}>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.strategies}>
-            {this.state.strategies}
-            </Text>
-          ) : null
-        }
+          {
+            this.state.fontLoaded ? (
+              <Text style={styles.strategies}>
+                {this.state.strategies}
+              </Text>
+            ) : null
+          }
         </Animated.View>
         </TouchableOpacity>
       </View>
