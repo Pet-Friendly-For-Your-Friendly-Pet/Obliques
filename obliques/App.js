@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity, Animated, Easing} from 'react-native';
 import { Asset, AppLoading, Font } from 'expo';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 export default class App extends React.Component {
   constructor(props) {
