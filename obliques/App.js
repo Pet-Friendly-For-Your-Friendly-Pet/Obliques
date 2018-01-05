@@ -4,6 +4,7 @@ import { Asset, AppLoading, Font } from 'expo';
 
 const _ = require('lodash');
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -144,30 +145,30 @@ export default class App extends React.Component {
       "From nothing to more than nothing",
       "Be less critical more often"]),
       seenStrategies: [],
-      fontLoaded: false
+      fontLoaded: false,
   };
-}
+};
 
   async componentDidMount() {
     await Font.loadAsync({
       'OpenSans-LightItalic': require('./assets/OpenSans-LightItalic.ttf'),
     });
     this.setState({ fontLoaded: true });
-    this.animate();
   }
 
   animate () {
-    // this.animatedValue.setValue(0)
+    //this.animatedValue.setValue(0)
     Animated.timing(
       this.animatedValue,
       {
         toValue: 1,
         duration: 4000,
-        easing: Easing.inOut(Easing.ease)
+        easing: Easing.log
       }
     ).start(() => this.animate())
   }
-   
+
+  //Setting 'isSeen' to true in after onTouch() occurs
   onTouch = () => {
     this.setState({
       strategies: _.sample([
@@ -303,8 +304,10 @@ export default class App extends React.Component {
         "Once the search is in progress, something will be found",
         "Only a part, not the whole",
         "From nothing to more than nothing",
-        "Be less critical more often"])
+        "Be less critical more often"]),
+        isSeen: true
     });
+    this.animate();
   }
 
   render() {
