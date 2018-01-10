@@ -1,4 +1,5 @@
 import React from 'react';
+import Aux from './hoc/Aux';
 import { Text, Image, View, StyleSheet, Dimensions, Platform, PixelRatio, TouchableOpacity, Animated, Easing} from 'react-native';
 import { Asset, AppLoading, Font } from 'expo';
 
@@ -146,6 +147,7 @@ export default class App extends React.Component {
       "Be less critical more often"]),
       seenStrategies: [],
       fontLoaded: false,
+
   };
 };
 
@@ -154,18 +156,18 @@ export default class App extends React.Component {
       'OpenSans-LightItalic': require('./assets/OpenSans-LightItalic.ttf'),
     });
     this.setState({ fontLoaded: true });
+    this.animate()
   }
 
   animate () {
-    //this.animatedValue.setValue(0)
     Animated.timing(
       this.animatedValue,
       {
         toValue: 1,
-        duration: 4000,
+        duration: 6000,
         easing: Easing.log
       }
-    ).start(() => this.animate())
+    ).start()
   }
 
   //Setting 'isSeen' to true in after onTouch() occurs
