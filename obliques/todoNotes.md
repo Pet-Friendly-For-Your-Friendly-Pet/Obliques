@@ -7,3 +7,4 @@ Jan 3 2018
         - Get rid of white background when the phone turns over
 Jan 10 2018
     - Implementing animatable.js :) Maybe this will be somewhat easier
+    - Nah, fuck that animatable shit, the animate library is fine, just have ter think a little harder to make it work

@@ -20,7 +20,7 @@ export default class App extends React.Component {
       "Simple subtraction",
       "Are there sections? Consider transitions",
       "Turn it upside down",
-      "Go slowly all the way round the outside",
+      "Go slowly all the way around the outside",
       "A line has two sides",
       "Infinitesimal gradations",
       "Make an exhaustive list of everything you might do and do the last thing on the list",
@@ -32,7 +32,7 @@ export default class App extends React.Component {
       "Take away the elements in order of apparent non-importance",
       "Emphasize repetitions",
       "Change instrument roles",
-      "Don't be afraid of things becuase they are easy to do",
+      "Don't be afraid of things because they are easy to do",
       "Is there something missing?",
       "Don't be frightened to display your talents",
       "Use unqualified people",
@@ -71,7 +71,7 @@ export default class App extends React.Component {
       "Distorting time",
       "Give way to your worst impulse",
       "Make a blank valuable by putting it in an exquisite frame",
-      "",
+      "...",
       "The inconsistency principle",
       "Ghost echoes",
       "Don't break the silence",
@@ -125,7 +125,7 @@ export default class App extends React.Component {
       "The most important thing is the thing most easily forgotten",
       "Always first steps",
       "Idiot glee",
-      "Question the heoric approach",
+      "Question the heroic approach",
       "Be EXTRAvagant",
       "Always give yourself credit for having more than personality",
       "State the problem in words as clearly as possible",
@@ -155,8 +155,11 @@ export default class App extends React.Component {
     await Font.loadAsync({
       'OpenSans-LightItalic': require('./assets/OpenSans-LightItalic.ttf'),
     });
-    this.setState({ fontLoaded: true });
-    this.animate()
+    this.setState({ 
+      fontLoaded: true, 
+      isSeen: true 
+    });
+    this.animate();
   }
 
   animate () {
@@ -169,8 +172,18 @@ export default class App extends React.Component {
       }
     ).start()
   }
+//Where oh where will use this!
+  animateOut () {
+    Animated.timing(
+      this.animatedValue,
+      {
+        toValue: 0,
+        duration: 6000,
+        easing: Easing.log
+      }
+    ).start()
+  }
 
-  //Setting 'isSeen' to true in after onTouch() occurs
   onTouch = () => {
     this.setState({
       strategies: _.sample([
@@ -182,7 +195,7 @@ export default class App extends React.Component {
         "Simple subtraction",
         "Are there sections? Consider transitions",
         "Turn it upside down",
-        "Go slowly all the way round the outside",
+        "Go slowly all the way around the outside",
         "A line has two sides",
         "Infinitesimal gradations",
         "Make an exhaustive list of everything you might do and do the last thing on the list",
@@ -194,7 +207,7 @@ export default class App extends React.Component {
         "Take away the elements in order of apparent non-importance",
         "Emphasize repetitions",
         "Change instrument roles",
-        "Don't be afraid of things becuase they are easy to do",
+        "Don't be afraid of things because they are easy to do",
         "Is there something missing?",
         "Don't be frightened to display your talents",
         "Use unqualified people",
@@ -233,7 +246,7 @@ export default class App extends React.Component {
         "Distorting time",
         "Give way to your worst impulse",
         "Make a blank valuable by putting it in an exquisite frame",
-        "",
+        "...",
         "The inconsistency principle",
         "Ghost echoes",
         "Don't break the silence",
@@ -287,7 +300,7 @@ export default class App extends React.Component {
         "The most important thing is the thing most easily forgotten",
         "Always first steps",
         "Idiot glee",
-        "Question the heoric approach",
+        "Question the heroic approach",
         "Be EXTRAvagant",
         "Always give yourself credit for having more than personality",
         "State the problem in words as clearly as possible",
@@ -307,10 +320,9 @@ export default class App extends React.Component {
         "Only a part, not the whole",
         "From nothing to more than nothing",
         "Be less critical more often"]),
-        isSeen: true
     });
-    this.animate();
   }
+
 
   render() {
     let opacity = this.animatedValue.interpolate({
@@ -319,29 +331,36 @@ export default class App extends React.Component {
     })
 
     return (
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
-          <Animated.View style={{opacity}}>
-            {
-              this.state.fontLoaded ? (
-                <Text style={styles.strategies}>
-                  {this.state.strategies}
-                </Text>
-              ) : null
-            }
-          </Animated.View>
-        </TouchableOpacity>
-      </View>
+      <Aux style={styles.aux}>
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
+            <Animated.View style={{opacity}}>
+              {
+                this.state.fontLoaded ? (
+                  <Text style={styles.strategies}>
+                    {this.state.strategies}
+                  </Text>
+                ) : null
+              }
+            </Animated.View>
+          </TouchableOpacity>
+        </View>
+      </Aux>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  aux: {
+    backgroundColor: '#000000',
+    resizeMode: 'stretch',
+  },
   container: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#000000',
+    alignSelf: 'stretch'
   },
   touch: {
     flex: 1,
