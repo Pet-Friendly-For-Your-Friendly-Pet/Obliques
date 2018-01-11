@@ -145,8 +145,8 @@ export default class App extends React.Component {
       "Only a part, not the whole",
       "From nothing to more than nothing",
       "Be less critical more often"]),
-      seenStrategies: [],
       fontLoaded: false,
+      isSeen: false
 
   };
 };
@@ -156,8 +156,7 @@ export default class App extends React.Component {
       'OpenSans-LightItalic': require('./assets/OpenSans-LightItalic.ttf'),
     });
     this.setState({ 
-      fontLoaded: true, 
-      isSeen: true 
+      fontLoaded: true
     });
     this.animate();
   }
@@ -167,17 +166,6 @@ export default class App extends React.Component {
       this.animatedValue,
       {
         toValue: 1,
-        duration: 6000,
-        easing: Easing.log
-      }
-    ).start()
-  }
-//Where oh where will use this!
-  animateOut () {
-    Animated.timing(
-      this.animatedValue,
-      {
-        toValue: 0,
         duration: 6000,
         easing: Easing.log
       }
@@ -320,21 +308,22 @@ export default class App extends React.Component {
         "Only a part, not the whole",
         "From nothing to more than nothing",
         "Be less critical more often"]),
+        isSeen: true 
     });
   }
-
 
   render() {
     let opacity = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [0, 1, 1]
-    })
+    });
+
 
     return (
       <Aux style={styles.aux}>
         <View style={styles.container}>
           <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
-            <Animated.View style={{opacity}}>
+            <Animated.View style={{opacity: opacity }}>
               {
                 this.state.fontLoaded ? (
                   <Text style={styles.strategies}>
