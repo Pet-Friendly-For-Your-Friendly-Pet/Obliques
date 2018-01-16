@@ -146,8 +146,8 @@ export default class App extends React.Component {
       "From nothing to more than nothing",
       "Be less critical more often"]),
       fontLoaded: false,
-      isSeen: false
-
+      isSeen: false,
+      loaded: false
   };
 };
 
@@ -156,7 +156,8 @@ export default class App extends React.Component {
       'OpenSans-LightItalic': require('./assets/OpenSans-LightItalic.ttf'),
     });
     this.setState({ 
-      fontLoaded: true
+      fontLoaded: true,
+      loaded: true
     });
     this.animate();
   }
@@ -313,11 +314,16 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (!this.state.loaded) {
+      return (
+        <AppLoading />
+      )
+    } 
+
     let opacity = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [0, 1, 1]
     });
-
 
     return (
       <Aux style={styles.aux}>
