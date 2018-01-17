@@ -10,10 +10,8 @@
   	"slug": "Obliques",
     "sdkVersion": "23.0.0",
     "privacy": "public",
-    "backgroundColor": "#000000",
     "ios": {
       "bundleIdentifier": "com.Oblique-Strategies",
-      "CFBundleVersion": "1.0",
       "supportsTablet": true
     },
     "splash": {
