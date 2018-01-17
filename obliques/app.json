@@ -2,21 +2,25 @@
   "name": "obliques",
   "displayName": "obliques",
   "expo": {
-  	"name": "Oblique Strategies",
-  	"icon": "./assets/icon.png",
-  	"slug": "Obliques-slug",
+    "name": "Oblique Strategies",
+    "description":"No description",
+    "primaryColor": "#000000",
+    "icon": "./assets/icon.png",
+    "version": "1.0.0",
+  	"slug": "Obliques",
     "sdkVersion": "23.0.0",
     "privacy": "public",
+    "backgroundColor": "#000000",
     "ios": {
-    	"bundleIdentifier": "com.Oblique-Strategies"
-    },
-    "loading": {
-    	"backgroundImage":"./assets/splash.png"
+      "bundleIdentifier": "com.Oblique-Strategies",
+      "CFBundleVersion": "1.0",
+      "supportsTablet": true
     },
     "splash": {
   	"image": "./assets/splashResize.png",
   	"backgroundColor": "#000000",
-  	"resizeMode": "contain"
+    "resizeMode": "contain",
+    "hideExponentText": true
   	}
   }
 }

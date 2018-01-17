@@ -8,3 +8,7 @@ Jan 3 2018
 Jan 10 2018
     - Implementing animatable.js :) Maybe this will be somewhat easier
     - Nah, fuck that animatable shit, the animate library is fine, just have ter think a little harder to make it work
+
+CATEGORY to use for App Store:
+    Reference:
+        - Quotation

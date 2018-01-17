@@ -348,7 +348,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   aux: {
     backgroundColor: '#000000',
-    resizeMode: 'stretch',
   },
   container: {
     display: 'flex',
