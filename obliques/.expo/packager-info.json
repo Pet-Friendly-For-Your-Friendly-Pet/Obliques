@@ -1,8 +1,8 @@
 {
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": "https://wp-gcr.mothra.obliques.exp.direct",
-  "packagerNgrokUrl": "https://packager.wp-gcr.mothra.obliques.exp.direct",
-  "ngrokPid": 12008
+  "expoServerPort": 19000,
+  "packagerPort": 19002,
+  "packagerPid": 40688,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

@@ -162,7 +162,7 @@ export default class App extends React.Component {
     this.animate();
   }
 
-  animate () {
+  animate() {
     Animated.timing(
       this.animatedValue,
       {
@@ -309,9 +309,10 @@ export default class App extends React.Component {
         "Only a part, not the whole",
         "From nothing to more than nothing",
         "Be less critical more often"]),
-        isSeen: true 
+        isSeen: true,
     });
   }
+
 
   render() {
     if (!this.state.loaded) {
@@ -328,7 +329,7 @@ export default class App extends React.Component {
     return (
       <Aux style={styles.aux}>
         <View style={styles.container}>
-          <TouchableOpacity style={styles.touch} onPress={() => this.onTouch()}>
+          <TouchableOpacity activeOpacity={0} style={styles.touch} onPress={() => this.onTouch()}>
             <Animated.View style={{opacity: opacity }}>
               {
                 this.state.fontLoaded ? (
@@ -354,7 +355,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     backgroundColor: '#000000',
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
   },
   touch: {
     flex: 1,
@@ -369,6 +370,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
     fontFamily: 'OpenSans-LightItalic',
-    color: '#FFFFFF'
+    color: '#FFFFFF',
+  },
+  landscapeContainer: {
+    flexDirection: "row",
+    width: "100%"
+  },
+  potraitContainer: {
+    flexDirection: "column",
+    width: "100%"
   }
 });

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0620"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "NO"
@@ -48,6 +48,20 @@
                ReferencedContainer = "container:obliques.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3C39011B201BF9B600053149"
+               BuildableName = "obliquesUITests.xctest"
+               BlueprintName = "obliquesUITests"
+               ReferencedContainer = "container:obliques.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -63,6 +77,16 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "obliquesTests.xctest"
                BlueprintName = "obliquesTests"
+               ReferencedContainer = "container:obliques.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3C39011B201BF9B600053149"
+               BuildableName = "obliquesUITests.xctest"
+               BlueprintName = "obliquesUITests"
                ReferencedContainer = "container:obliques.xcodeproj">
             </BuildableReference>
          </TestableReference>
